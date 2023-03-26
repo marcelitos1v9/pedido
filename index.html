@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>💖 Pedido de namoro 💖</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      background-color: #fce7f3;
+    }
+
+    .heart {
+      position: absolute;
+      display: block;
+      width: 50px;
+      height: 50px;
+      background: url('https://twemoji.maxcdn.com/v/13.1.0/72x72/2764.png') no-repeat;
+      background-size: contain;
+      animation: pulse 1.5s infinite;
+    }
+
+    .fa-heart:before {
+      content: "\f004";
+      font-family: "Font Awesome 5 Free";
+    }
+
+    .fa-times:before {
+      content: "\f00d";
+      font-family: "Font Awesome 5 Free";
+    }
+
+    .btn-rosa {
+      background-color: #ff69b4;
+      border-color: #ff69b4;
+      color: #fff;
+    }
+
+    .btn-vermelho {
+      background-color: #dc3545;
+      border-color: #dc3545;
+      color: #fff;
+    }
+
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container ">
+    <h1 class="text-center">💖 Marcelitos Dev o ultimo romantico 💖</h1>
+    <p class="text-center"><span style="font-size: 24px;">💕</span> Você quer mim namorar eu? <span
+        style="font-size: 24px;">💕</span></p>
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <button type="button" class="btn btn-rosa btn-lg mr-4 mb-3" id="sim-btn"><i class="fa fa-heart"></i> Quero
+          namorar com você 💘</button>
+        <button type="button" class="btn btn-vermelho btn-lg nao-btn" id="nao-btn"><i class="fa fa-times"></i> Não,
+          eu te odeio 😔</button>
+      </div>
+    </div>
+  </div>
+  <!-- Incluir os arquivos JavaScript do Bootstrap e do jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- Incluir seu próprio script para lidar com ações dos botões -->
+  <script>
+    // Associar ações aos botões
+    $(document).ready(function () {
+      var naoClicado = 0;
+      var hover = 0;
+      var audio = new Audio("./music/suspense.mp3");
+      audio.play();
+      $('#sim-btn').click(function () {
+        $('#sim-btn').text("💕💕Agora estamos namorando linda!!💕💕")
+        alert("Aeeee, vamos ser muito felizes juntos! 😍");
+        $('body').append('<span class="heart"></span>,<span class="heart"></span>');
+        $('.heart').css({
+          'left': '50%',
+          'top': '50%',
+          'transform': 'translate(-50%, -50%)'
+        });
+        var audio = new Audio("./music/musiquinha.mp3");
+        audio.play();
+
+        // Adicionar a condição para manter o botão na tela
+        if ($('#nao-btn').css('display')) {
+          $('#nao-btn').css({
+            'display': 'none'
+          });
+        }
+      });
+      $('#nao-btn').hover(function () {
+        hover++;
+        if (hover === 15) { // verifica se o botão "Não" foi clicado três vezes
+          alert("Quero ver como vai recusar agora!!")
+          $(this).css({
+            'display': 'none'
+          });
+        }
+        var containerWidth = $('.container').width();
+        var containerHeight = $('.container').height();
+        var buttonWidth = $(this).outerWidth();
+        var buttonHeight = $(this).outerHeight();
+        var newX = Math.random() * (containerWidth - buttonWidth);
+        var newY = Math.random() * (containerHeight - buttonHeight);
+        $(this).css({
+          'position': 'absolute',
+          'left': newX,
+          'top': newY
+        });
+      });
+      $('#nao-btn').click(function () {
+        naoClicado++; // incrementa a variável de cliques no botão "Não"
+        if (naoClicado === 1) { // verifica se o botão "Não" foi clicado três vezes
+          alert("Vamos tentar de novo!?");
+        }
+        if (naoClicado === 2) { // verifica se o botão "Não" foi clicado duas vezes
+          alert("Só porque você não quer não significa que não vamos namorar!"); // exibe um alerta com uma mensagem mais zoeira
+        }
+        if (naoClicado === 3) { // verifica se o botão "Não" foi clicado três vezes
+          alert("Ta falando sério!?"); // exibe um alerta com a mensagem "Você me desapontou!"
+        }
+        if (naoClicado === 4) { // verifica se o botão "Não" foi clicado quatro vezes
+          alert("Sou brasileiro e nao desisto nunca!!!!!"); // mais uma mensagem zoeira
+        }
+        if (naoClicado === 5) { // verifica se o botão "Não" foi clicado três vezes
+          alert("Quero ver como vai recusar agora!!")
+          $(this).css({
+            'display': 'none'
+          });
+        }
+        var containerWidth = $('.container').width();
+        var containerHeight = $('.container').height();
+        var buttonWidth = $(this).outerWidth();
+        var buttonHeight = $(this).outerHeight();
+        var newX = Math.random() * (containerWidth - buttonWidth);
+        var newY = Math.random() * (containerHeight - buttonHeight);
+        $(this).css({
+          'position': 'absolute',
+          'left': newX,
+          'top': newY
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
