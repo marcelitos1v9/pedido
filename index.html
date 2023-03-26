@@ -67,7 +67,7 @@
 </head>
 
 <body>
-  <div class="container mt-5 p-5">
+  <div class="container-fluid mt-5 p-5 m-auto">
     <h1 class="text-center">💖 Marcelitos Dev o ultimo romantico 💖</h1>
     <p class="text-center"><span style="font-size: 24px;">💕</span> Você quer mim namorar eu? <span
         style="font-size: 24px;">💕</span></p>
@@ -119,8 +119,8 @@
             'display': 'none'
           });
         }
-        var containerWidth = $('.container').width();
-        var containerHeight = $('.container').height();
+        var containerWidth = $('.container-fluid').width();
+        var containerHeight = $('.container-fluid').height();
         var buttonWidth = $(this).outerWidth();
         var buttonHeight = $(this).outerHeight();
         var newX = Math.random() * (containerWidth - buttonWidth);
